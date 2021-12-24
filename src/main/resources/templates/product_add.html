@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/product">
                             <span data-feather="shopping-cart"></span>
-                            Products
+                            <b>Products </b>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -116,26 +116,48 @@
                 <form action="#" method="POST"
                       th:action="@{/product/save}" th:object="${product}">
                     <div class=" form-group ">
-                        <input class="form-control" id="name" name="name" placeholder="Enter name" th:field="*{name}"
-                               type="text">
+                        <input autofocus class="form-control" id="name" name="name" placeholder="Enter name"
+                               required th:field="*{name}" type="text">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="type" name="type" placeholder="Enter type" th:field="*{type}"
-                               type="text">
+                        <input autofocus class="form-control" id="type" name="type" placeholder="Enter type"
+                               required th:field="*{type}" type="text">
                     </div>
                     <div class="form-group ">
-                        <input class="form-control" id="price" name="price" placeholder="Enter price" th:field="*{price}"
-                               type="number">
+                        <input autofocus class="form-control" id="price" max="999999"
+                               min="0"
+                               name="price" placeholder="Enter price (in ₺)" required th:field="*{price}" type="number">
+
                     </div>
                     <div class="form-group ">
-                        <input class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" th:field="*{quantity}"
-                               type="text">
+                        <input autofocus class="form-control" id="quantity" max="9999"
+                               min="0"
+                               name="quantity" placeholder="Enter quantity" required th:field="*{quantity}" type="number">
                     </div>
                     <div class="form-group ">
-                        <textarea class="form-control" id="description" name="description" rows="3"
-                                  th:field="*{description}"></textarea>
+                        <textarea autofocus class="form-control" id="description" maxlength="200"
+                                  minlength="10" name="description" placeholder="Enter description"
+                                  required rows="3" th:field="*{description}"></textarea>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input autofocus class="form-check-input" id="statusActive" name="status" required
+                                   th:field="*{status}" type="radio" value="1">
+                            <label class="form-check-label" for="statusActive">
+                                Active
+                            </label>
+
+                            <input class="form-check-input ml-2" id="statusInactive" name="status" th:field="*{status}"
+                                   type="radio"
+                                   value="0">
+                            <label class="form-check-label ml-4" for="statusInactive">
+                                Inactive
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <button class="btn btn-primary" th:object="${product}" type="submit">Save</button>
                 </form>
 
 
@@ -149,7 +171,8 @@
 </div>
 
 
-<div id=" scripts">
+<div id="scripts">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script crossorigin="anonymous"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -163,7 +186,7 @@
 
 
     <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"/>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace()
     </script>

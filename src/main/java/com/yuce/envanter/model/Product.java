@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Blob;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,7 +21,7 @@ public class Product {
     private String description;
     private boolean status;
     private LocalDateTime createdDate;
-    private int createdBy;
+    private String createdBy;
     private LocalDateTime modifiedDate;
-    private int modifiedBy;
+    private String modifiedBy;
 }
