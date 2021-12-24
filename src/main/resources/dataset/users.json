@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "firstName": "Hill",
+    "lastName": "Siflet",
+    "username": "hsiflet0",
+    "password": "PKyWxMMm7pk",
+    "role": 3
+  },
+  {
+    "id": 2,
+    "firstName": "Delilah",
+    "lastName": "MacDonogh",
+    "username": "dmacdonogh1",
+    "password": "MNF025I7e",
+    "role": 2
+  },
+  {
+    "id": 3,
+    "firstName": "Aeriela",
+    "lastName": "Youens",
+    "username": "ayouens2",
+    "password": "54ODr902eM",
+    "role": 3
+  },
+  {
+    "id": 4,
+    "firstName": "Leroi",
+    "lastName": "Seakes",
+    "username": "lseakes3",
+    "password": "CqxSMdH1K0",
+    "role": 3
+  },
+  {
+    "id": 5,
+    "firstName": "Petronilla",
+    "lastName": "Stiell",
+    "username": "pstiell4",
+    "password": "8gymv4aKP0Sh",
+    "role": 3
+  },
+  {
+    "id": 6,
+    "firstName": "Clayson",
+    "lastName": "Lindenstrauss",
+    "username": "clindenstrauss5",
+    "password": "gIepKM4t5j",
+    "role": 3
+  },
+  {
+    "id": 7,
+    "firstName": "Goddart",
+    "lastName": "Fullicks",
+    "username": "gfullicks6",
+    "password": "b9k8kjsFcQ",
+    "role": 2
+  },
+  {
+    "id": 8,
+    "firstName": "Byron",
+    "lastName": "Richardson",
+    "username": "brichardson7",
+    "password": "yv224WxX",
+    "role": 2
+  },
+  {
+    "id": 9,
+    "firstName": "Giana",
+    "lastName": "Breakwell",
+    "username": "gbreakwell8",
+    "password": "WHkuOK",
+    "role": 1
+  },
+  {
+    "id": 10,
+    "firstName": "Rees",
+    "lastName": "Tippetts",
+    "username": "rtippetts9",
+    "password": "FwMg6EAo2djp",
+    "role": 3
+  }
+]
