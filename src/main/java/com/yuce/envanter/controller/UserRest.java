@@ -8,7 +8,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "user", path = "user")
+@RepositoryRestResource(collectionResourceRel = "userapi", path = "userapi")
 public interface UserRest extends CrudRepository<User, Integer> {
 
     @RestResource(path = "by-username")

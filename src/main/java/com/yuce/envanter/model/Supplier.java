@@ -3,6 +3,7 @@ package com.yuce.envanter.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "supplier_table")
@@ -21,4 +22,6 @@ public class Supplier {
     private String contactPerson;
     private String contactPhone;
     private String contactEmail;
+    private LocalDate contractStart;
+    private boolean active;
 }

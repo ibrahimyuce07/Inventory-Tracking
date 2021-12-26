@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
-@RepositoryRestResource(collectionResourceRel = "supplier", path = "supplier")
+@RepositoryRestResource(collectionResourceRel = "supplierapi", path = "supplierapi")
 public interface SupplierRest extends CrudRepository<Supplier, Integer> {
 }

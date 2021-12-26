@@ -113,12 +113,25 @@
             </div>
 
             <div id="main">
-                <script>
+                <script th:inline="javascript">
                     window.onload = function () {
 
                         var chart = new CanvasJS.Chart("chartContainer", {
                             animationEnabled: true,
                             theme: "light2",
+                            axisY: {
+                                title: "Price of Order",
+                            },
+                            axisX: {
+                                title: "Order Date (Last 10 Days)",
+                                labels: {
+                                    interval: 1,
+                                    fontColor: "black",
+                                    precision: 0,
+                                },
+
+                            },
+
                             title: {
                                 text: "Orders Line Chart"
                             },
@@ -126,30 +139,17 @@
                                 type: "line",
                                 indexLabelFontSize: 16,
                                 dataPoints: [
-                                    {x: 0, y: 450},
-                                    {x: 1, y: 414},
-                                    {
-                                        x: 2,
-                                        y: 520,
-                                        indexLabel: "\u2191 highest",
-                                        markerColor: "red",
-                                        markerType: "triangle"
-                                    },
-                                    {x: 3, y: 460},
-                                    {x: 4, y: 450},
-                                    {x: 5, y: 500},
-                                    {x: 6, y: 480},
-                                    {x: 7, y: 480},
-                                    {
-                                        x: 8,
-                                        y: 410,
-                                        indexLabel: "\u2193 lowest",
-                                        markerColor: "DarkSlateGrey",
-                                        markerType: "cross"
-                                    },
-                                    {x: 9, y: 500},
-                                    {x: 10, y: 480},
-                                    {x: 11, y: 510}
+                                    {x: -10, y: [[${y0}]]},
+                                    {x: -9, y: [[${y1}]]},
+                                    {x: -8, y: [[${y2}]]},
+                                    {x: -7, y: [[${y3}]]},
+                                    {x: -6, y: [[${y4}]]},
+                                    {x: -5, y: [[${y5}]]},
+                                    {x: -4, y: [[${y6}]]},
+                                    {x: -3, y: [[${y7}]]},
+                                    {x: -2, y: [[${y8}]]},
+                                    {x: -1, y: [[${y9}]]},
+                                    {x: 0, y: [[${y10}]]}
                                 ]
                             }]
                         });
@@ -173,31 +173,31 @@
                         <tbody>
                         <tr>
                             <td>Orders</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
+                            <td th:text="${todayOrderCount}"/>
+                            <td th:text="${last7DaysOrderCount}"/>
+                            <td th:text="${last30DaysOrderCount}"/>
+                            <td th:text="${totalOrderCount}"/>
                         </tr>
                         <tr>
                             <td>Products</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
+                            <td th:text="${todayProductCount}"/>
+                            <td th:text="${last7DaysProductCount}"/>
+                            <td th:text="${last30DaysProductCount}"/>
+                            <td th:text="${totalProductCount}"/>
                         </tr>
                         <tr>
                             <td>Customers</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
+                            <td th:text="${todayCustomerCount}"/>
+                            <td th:text="${last7DaysCustomerCount}"/>
+                            <td th:text="${last30DaysCustomerCount}"/>
+                            <td th:text="${totalCustomerCount}"/>
                         </tr>
                         <tr>
                             <td>Suppliers</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
-                            <td>NaN</td>
+                            <td th:text="${todaySupplierCount}"/>
+                            <td th:text="${last7DaysSupplierCount}"/>
+                            <td th:text="${last30DaysSupplierCount}"/>
+                            <td th:text="${totalSupplierCount}"/>
                         </tr>
                         </tbody>
                     </table>
