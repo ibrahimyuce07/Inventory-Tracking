@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "orderapi", path = "orderapi")
@@ -21,5 +23,6 @@ public interface OrderRest extends CrudRepository<Order, Integer> {
     @RestResource(path = "orderShipped")
     List<Order> findByOrderShipped(@Param("orderShipped") boolean orderShipped);
 
-
+    @RestResource(path = "orderDate")
+    List<Order> findByOrderDate(@Param("orderDate") LocalDate orderDate);
 }

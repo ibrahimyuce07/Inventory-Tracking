@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Controller
@@ -44,36 +43,75 @@ public class HomeController {
     }
 
     private void calculatinForGraph(Model model) {
-        Iterable<Product> products = productRest.findAll();
-
-        String x0 = LocalDate.now().minusDays(10).toString();
-        String x1 = LocalDate.now().minusDays(9).toString();
-        String x2 = LocalDate.now().minusDays(8).toString();
-        String x3 = LocalDate.now().minusDays(7).toString();
-        String x4 = LocalDate.now().minusDays(6).toString();
-        String x5 = LocalDate.now().minusDays(5).toString();
-        String x6 = LocalDate.now().minusDays(4).toString();
-        String x7 = LocalDate.now().minusDays(3).toString();
-        String x8 = LocalDate.now().minusDays(2).toString();
-        String x9 = LocalDate.now().minusDays(1).toString();
-        String x10 = LocalDate.now().toString();
-
-
-        boolean dummy = true;
-
-        //dummy data for graph
-        BigDecimal y0 = BigDecimal.valueOf(2);
-        BigDecimal y1 = BigDecimal.valueOf(4);
-        BigDecimal y2 = BigDecimal.valueOf(6);
-        BigDecimal y3 = BigDecimal.valueOf(8);
-        BigDecimal y4 = BigDecimal.valueOf(9);
-        BigDecimal y5 = BigDecimal.valueOf(7);
-        BigDecimal y6 = BigDecimal.valueOf(5);
-        BigDecimal y7 = BigDecimal.valueOf(3);
-        BigDecimal y8 = BigDecimal.valueOf(1);
-        BigDecimal y9 = BigDecimal.valueOf(3);
-        BigDecimal y10 = BigDecimal.valueOf(5);
-
+        int y0 = 0; //10 days ago
+        int y1 = 0; //9 days ago
+        int y2 = 0; //8 days ago
+        int y3 = 0; //7 days ago
+        int y4 = 0; //6 days ago
+        int y5 = 0; //5 days ago
+        int y6 = 0; //4 days ago
+        int y7 = 0; //3 days ago
+        int y8 = 0; //2 days ago
+        int y9 = 0; //yesterday
+        int y10 = 0; //today
+        Iterable<Order> orders = orderRest.findAll();
+        for (Order order : orders) {
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(10))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y0++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(9))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y1++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(8))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y2++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(7))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y3++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(6))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y4++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(5))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y5++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(4))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y6++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(3))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y7++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(2))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y8++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now().minusDays(1))) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y9++;
+                }
+            }
+            if (order.getOrderDate().toLocalDate().equals(LocalDate.now())) {
+                for (int i = 0; i < order.getQuantity(); i++) {
+                    y10++;
+                }
+            }
+        }
 
         model.addAttribute("y0", y0);
         model.addAttribute("y1", y1);
@@ -86,19 +124,6 @@ public class HomeController {
         model.addAttribute("y8", y8);
         model.addAttribute("y9", y9);
         model.addAttribute("y10", y10);
-
-        model.addAttribute("x0", x0);
-        model.addAttribute("x1", x1);
-        model.addAttribute("x2", x2);
-        model.addAttribute("x3", x3);
-        model.addAttribute("x4", x4);
-        model.addAttribute("x5", x5);
-        model.addAttribute("x6", x6);
-        model.addAttribute("x7", x7);
-        model.addAttribute("x8", x8);
-        model.addAttribute("x9", x9);
-        model.addAttribute("x10", x10);
-
 
     }
 

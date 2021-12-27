@@ -123,15 +123,12 @@
                                 title: "Price of Order",
                             },
                             axisX: {
+                                interval: 1,
+                                intervalType: "day" + "/" + "month" + "/" + "year",
                                 title: "Order Date (Last 10 Days)",
-                                labels: {
-                                    interval: 1,
-                                    fontColor: "black",
-                                    precision: 0,
-                                },
-
+                                labelangle: -45,
+                                suffix: " /" + (new Date().getMonth() + 1),
                             },
-
                             title: {
                                 text: "Orders Line Chart"
                             },
@@ -139,17 +136,17 @@
                                 type: "line",
                                 indexLabelFontSize: 16,
                                 dataPoints: [
-                                    {x: -10, y: [[${y0}]]},
-                                    {x: -9, y: [[${y1}]]},
-                                    {x: -8, y: [[${y2}]]},
-                                    {x: -7, y: [[${y3}]]},
-                                    {x: -6, y: [[${y4}]]},
-                                    {x: -5, y: [[${y5}]]},
-                                    {x: -4, y: [[${y6}]]},
-                                    {x: -3, y: [[${y7}]]},
-                                    {x: -2, y: [[${y8}]]},
-                                    {x: -1, y: [[${y9}]]},
-                                    {x: 0, y: [[${y10}]]}
+                                    {x: new Date().getDate() - 10, y: [[${y0}]]},
+                                    {x: new Date().getDate() - 9, y: [[${y1}]]},
+                                    {x: new Date().getDate() - 8, y: [[${y2}]]},
+                                    {x: new Date().getDate() - 7, y: [[${y3}]]},
+                                    {x: new Date().getDate() - 6, y: [[${y4}]]},
+                                    {x: new Date().getDate() - 5, y: [[${y5}]]},
+                                    {x: new Date().getDate() - 4, y: [[${y6}]]},
+                                    {x: new Date().getDate() - 3, y: [[${y7}]]},
+                                    {x: new Date().getDate() - 2, y: [[${y8}]]},
+                                    {x: new Date().getDate() - 1, y: [[${y9}]]},
+                                    {x: new Date().getDate(), y: [[${y10}]]}
                                 ]
                             }]
                         });
