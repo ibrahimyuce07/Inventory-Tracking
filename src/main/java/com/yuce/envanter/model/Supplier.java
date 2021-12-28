@@ -13,11 +13,8 @@ public class Supplier {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "supplier_seq")
     private int id;
-
     private String companyName;
-    @OneToOne
-    @JoinColumn(name = "addres_id")
-    private Address addres;
+    private String addres;
     private String webSite;
     private String contactPerson;
     private String contactPhone;
