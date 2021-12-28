@@ -48,9 +48,12 @@ public class SupplierController {
     @RequestMapping("/add")
     public String add(Supplier supplier){
 
-        if(supplier.getId() == 0)
-        supplier.setContractStart(LocalDate.now());
-
+        if(supplier.getId() == 0) {
+            supplier.setContractStart(LocalDate.now());
+        }
+        else {
+            supplier.setContractStart(supplierRest.findById(supplier.getId()).get().getContractStart());
+        }
         supplierRest.save(supplier);
 
         return "redirect:/supplier";
