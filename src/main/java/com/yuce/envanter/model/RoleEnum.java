@@ -6,8 +6,8 @@ public enum RoleEnum {
     ROLE_EMPLOYEE(1, "ROLE_EMPLOYEE"),
     ROLE_USER(2, "ROLE_CUSTOMER");
 
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
 
     RoleEnum(int id, String name) {
         this.id = id;

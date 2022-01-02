@@ -4,6 +4,7 @@ import com.yuce.envanter.model.Product;
 
 import java.util.List;
 
+@Deprecated
 public interface IProductService {
 
     List<Product> getProducts();

@@ -1,12 +1,12 @@
-package com.yuce.envanter.thymeleaf;
+package com.yuce.envanter.controller;
 
-import com.yuce.envanter.controller.SupplierRest;
+import com.yuce.envanter.api.AddressRest;
+import com.yuce.envanter.api.SupplierRest;
 import com.yuce.envanter.model.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -18,8 +18,11 @@ public class SupplierController {
     @Autowired
     private SupplierRest supplierRest;
 
+    @Autowired
+    private AddressRest addressRest;
+
     @RequestMapping
-    public String list(Model model){
+    public String list(Model model) {
         Iterable<Supplier> suppliers = supplierRest.findAll();
         model.addAttribute("suppliers", suppliers);
         return "supplier_list";
@@ -28,15 +31,14 @@ public class SupplierController {
     @RequestMapping("/showFormForAdd")
     public String showFormForAdd(Integer id, Model model) {
         Supplier supplier = new Supplier();
-        if(id == null){
+        if (id == null) {
             id = 0;
         }
         Optional<Supplier> supplierRestById = supplierRest.findById(id);
 
         if (supplierRestById != null && supplierRestById.isPresent()) {
             model.addAttribute("supplier", supplierRestById.get());
-        }
-        else {
+        } else {
             supplier.setId(0);
             model.addAttribute("supplier", supplier);
         }
@@ -46,12 +48,11 @@ public class SupplierController {
     }
 
     @RequestMapping("/add")
-    public String add(Supplier supplier){
+    public String add(Supplier supplier) {
 
-        if(supplier.getId() == 0) {
+        if (supplier.getId() == 0) {
             supplier.setContractStart(LocalDate.now());
-        }
-        else {
+        } else {
             supplier.setContractStart(supplierRest.findById(supplier.getId()).get().getContractStart());
         }
         supplierRest.save(supplier);
@@ -59,17 +60,11 @@ public class SupplierController {
         return "redirect:/supplier";
     }
 
-    @RequestMapping("/update")
-    public String update(Supplier supplier){
-        return "redirect:/supplier";
-    }
-
     @RequestMapping("/delete")
-    public String delete(Supplier supplier){
+    public String delete(Supplier supplier) {
         supplierRest.deleteById(supplier.getId());
         return "redirect:/supplier";
     }
-
 
 
 }

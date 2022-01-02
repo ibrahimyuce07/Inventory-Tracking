@@ -1,6 +1,6 @@
 package com.yuce.envanter;
 
-import com.yuce.envanter.controller.ProductRest;
+import com.yuce.envanter.api.ProductRest;
 import com.yuce.envanter.model.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

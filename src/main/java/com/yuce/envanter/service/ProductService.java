@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
+@Deprecated
 public class ProductService implements IProductService {
 
     @Autowired

@@ -1,15 +1,12 @@
-package com.yuce.envanter.controller;
+package com.yuce.envanter.api;
 
-import com.yuce.envanter.model.Customer;
 import com.yuce.envanter.model.Order;
-import com.yuce.envanter.model.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "orderapi", path = "orderapi")

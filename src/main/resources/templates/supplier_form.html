@@ -22,7 +22,7 @@
     <input aria-label="Search" class="form-control form-control-dark w-100" placeholder="Search" type="text">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            <a class="nav-link" href="/api">API Endpoints</a>
         </li>
     </ul>
 </nav>
@@ -36,11 +36,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/">
                             <span data-feather="home"></span>
-                            Dashboard
+                            Dashboard <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/order">
+                    <li class="nav-item" onclick="function clickAction() {
+                      alert('This feature is not yet implemented');
+                    }
+                    clickAction();">
+                        <a class="nav-link disabled" href="/order">
                             <span data-feather="file"></span>
                             Orders
                         </a>
@@ -48,7 +51,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/product">
                             <span data-feather="shopping-cart"></span>
-                            <b>Products </b>
+                            Products
                         </a>
                     </li>
                     <li class="nav-item">
@@ -60,11 +63,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/supplier">
                             <span data-feather="anchor"></span>
-                            Suppliers <span class="sr-only">(current)</span>
+                            Suppliers
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/report">
+                    <li class="nav-item disabled" onclick="function clickAction() {
+                      alert('This feature is not yet implemented');
+                    }
+                    clickAction();">
+                        <a class="nav-link disabled" href="/report">
                             <span data-feather="bar-chart-2"></span>
                             Reports
                         </a>
@@ -116,7 +122,7 @@
                 <form action="#" method="POST"
                       th:action="@{/supplier/add}" th:object="${supplier}">
 
-                    <input type="hidden" name="id" th:field="*{id}" value="${id}" />
+                    <input name="id" th:field="*{id}" type="hidden" value="${id}"/>
 
                     <div class=" form-group ">
                         <input autofocus class="form-control" id="companyName" name="name" placeholder="Enter name"
@@ -128,21 +134,23 @@
                     </div>
                     <div class="form-group ">
                         <input autofocus class="form-control" id="contactPerson"
-                               name="contactPerson" placeholder="Enter contact person" required th:field="*{contactPerson}" type="text">
+                               name="contactPerson" placeholder="Enter contact person" required
+                               th:field="*{contactPerson}" type="text">
                     </div>
                     <div class="form-group ">
                         <input autofocus class="form-control" id="contactPhone"
-                               name="contactPhone" placeholder="Enter contact phone" required th:field="*{contactPhone}" type="text">
+                               name="contactPhone" placeholder="Enter contact phone" required th:field="*{contactPhone}"
+                               type="text">
                     </div>
                     <div class="form-group ">
                         <input autofocus class="form-control" id="contactEmail"
-                               name="contactEmail" placeholder="Enter contact email" required th:field="*{contactEmail}" type="text">
+                               name="contactEmail" placeholder="Enter contact email" required th:field="*{contactEmail}"
+                               type="text">
                     </div>
-
                     <div class="form-group ">
-                        <textarea autofocus class="form-control" id="addres" maxlength="200"
-                                  minlength="10" name="addres" placeholder="Enter full address"
-                                  required rows="3" th:field="*{addres}"></textarea>
+                        <textarea autofocus class="form-control" id="address" maxlength="200"
+                                  minlength="10" name="address" placeholder="Enter full address"
+                                  required rows="3" th:field="*{address}"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="form-check">
@@ -160,7 +168,6 @@
                             </label>
                         </div>
                     </div>
-
 
 
                     <button class="btn btn-primary" th:object="${supplier}" type="submit">Save</button>

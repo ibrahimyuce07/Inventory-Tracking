@@ -16,7 +16,7 @@ class CustomRestMvcConfiguration {
 
             @Override
             public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-                config.setBasePath("/");
+                config.setBasePath("/api");
                 config.setReturnBodyForPutAndPost(true);
                 cors.addMapping("/**").allowedMethods("*");
 

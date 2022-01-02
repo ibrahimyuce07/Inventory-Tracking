@@ -13,6 +13,10 @@
     <script crossorigin="anonymous"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>-->
+
 </head>
 
 <body>
@@ -22,7 +26,7 @@
     <input aria-label="Search" class="form-control form-control-dark w-100" placeholder="Search" type="text">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            <a class="nav-link" href="/api">API Endpoints</a>
         </li>
     </ul>
 </nav>
@@ -39,8 +43,11 @@
                             Dashboard <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/order">
+                    <li class="nav-item" onclick="function clickAction() {
+                      alert('This feature is not yet implemented');
+                    }
+                    clickAction();">
+                        <a class="nav-link disabled" href="/order">
                             <span data-feather="file"></span>
                             Orders
                         </a>
@@ -63,8 +70,11 @@
                             Suppliers
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/report">
+                    <li class="nav-item disabled" onclick="function clickAction() {
+                      alert('This feature is not yet implemented');
+                    }
+                    clickAction();">
+                        <a class="nav-link disabled" href="/report">
                             <span data-feather="bar-chart-2"></span>
                             Reports
                         </a>
@@ -114,6 +124,7 @@
 
             <div id="main">
                 <script th:inline="javascript">
+
                     window.onload = function () {
 
                         var chart = new CanvasJS.Chart("chartContainer", {
@@ -122,31 +133,30 @@
                             axisY: {
                                 title: "Price of Order",
                             },
-                            axisX: {
-                                interval: 1,
-                                intervalType: "day" + "/" + "month" + "/" + "year",
-                                title: "Order Date (Last 10 Days)",
-                                labelangle: -45,
-                                suffix: " /" + (new Date().getMonth() + 1),
-                            },
                             title: {
                                 text: "Orders Line Chart"
                             },
+                            axisX: {
+                                intervalType: "days",
+                                labelMaxWidth: 100, // change label width accordingly,
+                                interval: 1,
+                                title: "Last 10 Days"
+                            },
                             data: [{
                                 type: "line",
-                                indexLabelFontSize: 16,
+                                indexLabelFontSize: 1,
                                 dataPoints: [
-                                    {x: new Date().getDate() - 10, y: [[${y0}]]},
-                                    {x: new Date().getDate() - 9, y: [[${y1}]]},
-                                    {x: new Date().getDate() - 8, y: [[${y2}]]},
-                                    {x: new Date().getDate() - 7, y: [[${y3}]]},
-                                    {x: new Date().getDate() - 6, y: [[${y4}]]},
-                                    {x: new Date().getDate() - 5, y: [[${y5}]]},
-                                    {x: new Date().getDate() - 4, y: [[${y6}]]},
-                                    {x: new Date().getDate() - 3, y: [[${y7}]]},
-                                    {x: new Date().getDate() - 2, y: [[${y8}]]},
-                                    {x: new Date().getDate() - 1, y: [[${y9}]]},
-                                    {x: new Date().getDate(), y: [[${y10}]]}
+                                    {x: new Date().getDay() - 10, y: [[${y0}]]},
+                                    {x: new Date().getDay() - 9, y: [[${y1}]]},
+                                    {x: new Date().getDay() - 8, y: [[${y2}]]},
+                                    {x: new Date().getDay() - 7, y: [[${y3}]]},
+                                    {x: new Date().getDay() - 6, y: [[${y4}]]},
+                                    {x: new Date().getDay() - 5, y: [[${y5}]]},
+                                    {x: new Date().getDay() - 4, y: [[${y6}]]},
+                                    {x: new Date().getDay() - 3, y: [[${y7}]]},
+                                    {x: new Date().getDay() - 2, y: [[${y8}]]},
+                                    {x: new Date().getDay() - 1, y: [[${y9}]]},
+                                    {x: new Date().getDay() - 0, y: [[${y10}]]},
                                 ]
                             }]
                         });

@@ -14,11 +14,13 @@ public class Supplier {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "supplier_seq")
     private int id;
     private String companyName;
-    private String addres;
     private String webSite;
     private String contactPerson;
     private String contactPhone;
     private String contactEmail;
     private LocalDate contractStart;
     private boolean active;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
 }

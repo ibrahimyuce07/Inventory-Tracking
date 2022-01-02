@@ -1,4 +1,4 @@
-package com.yuce.envanter.controller;
+package com.yuce.envanter.api;
 
 import com.yuce.envanter.model.Supplier;
 import org.springframework.data.repository.CrudRepository;

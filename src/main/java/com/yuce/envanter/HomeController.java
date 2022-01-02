@@ -1,9 +1,9 @@
 package com.yuce.envanter;
 
-import com.yuce.envanter.controller.CustomerRest;
-import com.yuce.envanter.controller.OrderRest;
-import com.yuce.envanter.controller.ProductRest;
-import com.yuce.envanter.controller.SupplierRest;
+import com.yuce.envanter.api.CustomerRest;
+import com.yuce.envanter.api.OrderRest;
+import com.yuce.envanter.api.ProductRest;
+import com.yuce.envanter.api.SupplierRest;
 import com.yuce.envanter.model.Customer;
 import com.yuce.envanter.model.Order;
 import com.yuce.envanter.model.Product;

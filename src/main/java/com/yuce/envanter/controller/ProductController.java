@@ -1,6 +1,6 @@
-package com.yuce.envanter.thymeleaf;
+package com.yuce.envanter.controller;
 
-import com.yuce.envanter.controller.ProductRest;
+import com.yuce.envanter.api.ProductRest;
 import com.yuce.envanter.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -34,6 +34,7 @@ public class ProductController {
                 modifiedDateStr = product.getModifiedDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
 
         }
+
         model.addAttribute("products", products);
         model.addAttribute("createdDateStr", createdDateStr);
         model.addAttribute("modifiedDateStr", modifiedDateStr);
