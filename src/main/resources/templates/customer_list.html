@@ -13,76 +13,6 @@
     <script crossorigin="anonymous"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>-->
-
-    <style>
-        .footer-basic {
-            padding: 40px 0;
-            background-color: #ffffff;
-            color: #4b4c4d;
-            margin-top: 200px;
-        }
-
-        .footer-basic ul {
-            padding: 0;
-            list-style: none;
-            text-align: center;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        .footer-basic li {
-            padding: 0 10px;
-        }
-
-        .footer-basic ul a {
-            color: inherit;
-            text-decoration: none;
-            opacity: 0.8;
-        }
-
-        .footer-basic ul a:hover {
-            opacity: 1;
-        }
-
-        .footer-basic .social {
-            text-align: center;
-            padding-bottom: 25px;
-        }
-
-        .footer-basic .social > a {
-            font-size: 24px;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            display: inline-block;
-            text-align: center;
-            border-radius: 50%;
-            border: 1px solid #ccc;
-            margin: 0 8px;
-            color: inherit;
-            opacity: 0.75;
-        }
-
-        .footer-basic .social > a:hover {
-            opacity: 0.9;
-        }
-
-        .footer-basic .copyright {
-            margin-top: 15px;
-            text-align: center;
-            font-size: 13px;
-            color: #aaa;
-            margin-bottom: 0;
-        }
-
-
-    </style>
-
 </head>
 
 <body>
@@ -185,104 +115,62 @@
         <!-- Main Content Start -->
         <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" role="main">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
+                <h1 class="h2">Customer List</h1>
             </div>
-
-            <div id="main">
-                <script th:inline="javascript">
-
-                    window.onload = function () {
-
-                        var chart = new CanvasJS.Chart("chartContainer", {
-                            animationEnabled: true,
-                            theme: "light2",
-                            axisY: {
-                                title: "Price of Order",
-                            },
-                            title: {
-                                text: "Orders Line Chart"
-                            },
-                            // axisX: {
-                            //     intervalType: "days",
-                            //     labelMaxWidth: 100, // change label width accordingly,
-                            //     interval: 1,
-                            //     title: "Last 10 Days"
-                            // },
-                            data: [{
-                                type: "line",
-                                indexLabelFontSize: 1,
-                                dataPoints: [
-                                    {x: new Date('2021,12,24'), y: [[${y0}]]},
-                                    {x: new Date('2021,12,25'), y: [[${y1}]]},
-                                    {x: new Date('2021,12,26'), y: [[${y2}]]},
-                                    {x: new Date('2021,12,27'), y: [[${y3}]]},
-                                    {x: new Date('2021,12,28'), y: [[${y4}]]},
-                                    {x: new Date('2021,12,29'), y: [[${y5}]]},
-                                    {x: new Date('2021,12,30'), y: [[${y6}]]},
-                                    {x: new Date('2021,12,31'), y: [[${y7}]]},
-                                    {x: new Date('2022,01,01'), y: [[${y8}]]},
-                                    {x: new Date('2022,01,02'), y: [[${y9}]]},
-                                    {x: new Date('2022,01,03'), y: [[${y10}]]},
-                                ]
-                            }]
-                        });
-                        chart.render();
-
-                    }
-                </script>
-                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
-                <div class="row">
-                    <table class="table table-striped table-sm">
-                        <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Daily</th>
-                            <th>This Week</th>
-                            <th>This Month</th>
-                            <th>Total</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Orders</td>
-                            <td th:text="${todayOrderCount}"/>
-                            <td th:text="${last7DaysOrderCount}"/>
-                            <td th:text="${last30DaysOrderCount}"/>
-                            <td th:text="${totalOrderCount}"/>
-                        </tr>
-                        <tr>
-                            <td>Products</td>
-                            <td th:text="${todayProductCount}"/>
-                            <td th:text="${last7DaysProductCount}"/>
-                            <td th:text="${last30DaysProductCount}"/>
-                            <td th:text="${totalProductCount}"/>
-                        </tr>
-                        <tr>
-                            <td>Customers</td>
-                            <td th:text="${todayCustomerCount}"/>
-                            <td th:text="${last7DaysCustomerCount}"/>
-                            <td th:text="${last30DaysCustomerCount}"/>
-                            <td th:text="${totalCustomerCount}"/>
-                        </tr>
-                        <tr>
-                            <td>Suppliers</td>
-                            <td th:text="${todaySupplierCount}"/>
-                            <td th:text="${last7DaysSupplierCount}"/>
-                            <td th:text="${last30DaysSupplierCount}"/>
-                            <td th:text="${totalSupplierCount}"/>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="row">
+                <div class="col-md-12 mb-2 d-flex justify-content-between">
 
 
                 </div>
-
-
             </div>
+            <div id="main">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm" id="myTable">
 
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Registration Date</th>
+                            <th>Blocked</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <th:block th:each="customer : ${customer}">
+                            <tr>
+                                <td th:text="${customer.id}"></td>
+                                <td th:text="${customer.firstName}"></td>
+                                <td th:text="${customer.lastName}"></td>
+                                <td th:text="${customer.email}"></td>
+                                <td th:text="${customer.phone}"></td>
+                                <td th:text="${customer.registrationDate}"></td>
+                                <td th:text="${customer.blocked}"></td>
+                                <td th:text="${customer.address.addressLine1}"></td>
+
+                                <td>
+                                    <a class="btn btn-danger btn-sm"
+                                       onclick="if (!(confirm('Are you sure you want to block this customer?'))) return false"
+                                       th:href="@{/customer/block(id=${customer.id})}">
+                                        Block </a>
+                                    <a class="btn btn-danger btn-sm"
+                                       onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false"
+                                       th:href="@{/customer/delete(id=${customer.id})}">
+                                        Delete </a></td>
+                            </tr>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
-        <!-- Main Content Start -->
+        <!-- Main Content End -->
 
     </div>
 </div>
@@ -301,29 +189,11 @@
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
-
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace()
     </script>
 </div>
-
-
-
 </body>
-<footer class="footer-basic">
-    <div class="social">
-        <a href="https://github.com/ibrahimyuce07"><i class="icon ion-social-github"></i></a>
-        <a href="https://www.linkedin.com/in/ibrahim-yuce-07/"><i class="icon ion-social-linkedin"></i></a>
-        <a href="mailto:ibrahimyucee@outlook.com"><i class="icon ion-ios-email"></i></a>
-        <a href="#"><i class="fas fa-globe-africa"></i></a>
-    </div>
-    <ul class="list-inline">
-        <li class="list-inline-item"><a href="/">Home</a></li>
-        <li class="list-inline-item"><a href="/api">Endpoints</a></li>
-        <li class="list-inline-item"><a href="https://github.com/ibrahimyuce07/Inventory-Tracking">GitHub</a></li>
-    </ul>
-    <p class="copyright">İbrahim Yüce © 2022</p>
-</footer>
 </html>
