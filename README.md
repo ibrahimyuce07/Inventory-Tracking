@@ -6,8 +6,6 @@
 
 ------------
 
-## Tech Stack
-
 #### Front-End
 - **Thymeleaf**
 - *Bootstrap*
