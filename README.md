@@ -1,7 +1,7 @@
 
 # INVENTORY TRACKING APP *
 ######  Inventory Management Application using Spring Boot features 
-**WIP: some features are still under development.*
+**WIP: some features are still under development and it's a prototype built with Spring features, not a finished product.*
 
 
 ------------
